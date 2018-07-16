@@ -1,0 +1,32 @@
+server:
+  port: 11007
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:11000/eureka/
+
+spring:
+  application:
+    name: SCORE-CLIENT
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://127.0.0.1:9411
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

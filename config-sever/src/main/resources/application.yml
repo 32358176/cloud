@@ -1,0 +1,18 @@
+server:
+  port: 10011
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/thedevelopmentteam/git
+          search-paths: JS
+          username: 1779905848@qq.com
+          password: fly15617976458
+        default-label: master
+  application:
+    name: CONFIG-SERVER
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:11000/eureka/

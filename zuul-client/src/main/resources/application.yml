@@ -1,0 +1,45 @@
+server:
+  port: 11009
+
+spring:
+  application:
+    name: ZUUL-CLIENT
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://127.0.0.1:9411
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:11000/eureka/
+
+
+zuul:
+  routes:
+    student:
+      path: /stu/**
+      service-id: STUDENT-CLIENT
+    score:
+      path: /sco/**
+      service-id: SCORE-CLIENT
+    login:
+      path: /log/**
+      service-id: LOGIN-CLIENT
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+
+

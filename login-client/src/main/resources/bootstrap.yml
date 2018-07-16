@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: LOGIN-CLIENT
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://127.0.0.1:9411
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
+      fail-fast: true
+      bus:
+        enabled: true
+  profiles:
+    active: DEV
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:11000/eureka/
+server:
+  port: 11013
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

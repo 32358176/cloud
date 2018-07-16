@@ -1,0 +1,13 @@
+server:
+  port: 11001
+eureka:
+  client:
+#    对外提供服务器集群地址
+    service-url:
+      defaultZone: http://127.0.0.1:11000/eureka/,http://192.168.1.53:11001/eureka/
+#    防止注册自身
+    fetch-registry: false
+    register-with-eureka: false
+#    声明自身实例IP
+  instance:
+    hostname: 127.0.0.1
